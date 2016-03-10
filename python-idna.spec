@@ -5,17 +5,19 @@
 %bcond_without	python3 # CPython 3.x module
 
 %define 	module	idna
-Summary:	Internationalized Domain Names in Applications (IDNA)
+Summary:	Internationalized Domain Names in Applications (IDNA) for Python 2
+Summary(pl.UTF-8):	IDNA (Internationalized Domain Names in Applications) dla Pythona 2
 Name:		python-%{module}
 Version:	2.0
 Release:	1
 License:	BSD
 Group:		Libraries/Python
+#Source0Download: https://pypi.python.org/simple/idna/
 Source0:	https://pypi.python.org/packages/source/i/idna/%{module}-%{version}.tar.gz
 # Source0-md5:	bd17a9d15e755375f48a62c13b25b801
 URL:		https://pypi.python.org/pypi/idna
 BuildRequires:	rpm-pythonprov
-BuildRequires:	rpmbuild(macros) >= 1.713
+BuildRequires:	rpmbuild(macros) >= 1.714
 %if %{with python2}
 BuildRequires:	python-modules
 BuildRequires:	python-setuptools
@@ -31,27 +33,50 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 A library to support the Internationalised Domain Names in
 Applications (IDNA) protocol as specified in RFC 5891. This version of
-the protocol is often referred to as “IDNA2008” and can produce
+the protocol is often referred to as IDNA2008 and can produce
 different results from the earlier standard from 2003.
 
 The library is also intended to act as a suitable drop-in replacement
-for the “encodings.idna” module that comes with the Python standard
+for the encodings.idna module that comes with the Python standard
 library but currently only supports the older 2003 specification.
 
+%description -l pl.UTF-8
+Biblioteka obsługująca protokół IDNA (International Domain Names in
+Applications - międzynarodowe nazwy domen w aplikacjach) według
+specyfikacji RFC 5891. Ta wersja protokołu jest często nazywana
+IDNA2008 i może dawać inne wyniki, niż wcześniejszy standard z 2003
+roku.
+
+Ta biblioteka ma służyć także jako zamiennik modułu encodings.idna
+dostarczanego z biblioteką standardową Pythona, ale obecnie
+obsługująca tylko starszą specyfikację z 2003.
+
 %package -n python3-%{module}
-Summary:	Internationalized Domain Names in Applications (IDNA)
+Summary:	Internationalized Domain Names in Applications (IDNA) for Python 3
+Summary(pl.UTF-8):	IDNA (Internationalized Domain Names in Applications) dla Pythona 3
 Group:		Libraries/Python
 Requires:	python3-modules
 
 %description -n python3-%{module}
 A library to support the Internationalised Domain Names in
 Applications (IDNA) protocol as specified in RFC 5891. This version of
-the protocol is often referred to as “IDNA2008” and can produce
+the protocol is often referred to as IDNA2008 and can produce
 different results from the earlier standard from 2003.
 
 The library is also intended to act as a suitable drop-in replacement
-for the “encodings.idna” module that comes with the Python standard
+for the encodings.idna module that comes with the Python standard
 library but currently only supports the older 2003 specification.
+
+%description -n python3-%{module} -l pl.UTF-8
+Biblioteka obsługująca protokół IDNA (International Domain Names in
+Applications - międzynarodowe nazwy domen w aplikacjach) według
+specyfikacji RFC 5891. Ta wersja protokołu jest często nazywana
+IDNA2008 i może dawać inne wyniki, niż wcześniejszy standard z 2003
+roku.
+
+Ta biblioteka ma służyć także jako zamiennik modułu encodings.idna
+dostarczanego z biblioteką standardową Pythona, ale obecnie
+obsługująca tylko starszą specyfikację z 2003.
 
 %prep
 %setup -q -n %{module}-%{version}
