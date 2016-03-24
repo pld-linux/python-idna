@@ -1,3 +1,4 @@
+#
 # Conditional build:
 %bcond_without	doc	# don't build doc
 %bcond_without	tests	# do not perform "make test"
@@ -8,25 +9,25 @@
 Summary:	Internationalized Domain Names in Applications (IDNA) for Python 2
 Summary(pl.UTF-8):	IDNA (Internationalized Domain Names in Applications) dla Pythona 2
 Name:		python-%{module}
-Version:	2.0
+Version:	2.1
 Release:	1
 License:	BSD
 Group:		Libraries/Python
 #Source0Download: https://pypi.python.org/simple/idna/
 Source0:	https://pypi.python.org/packages/source/i/idna/%{module}-%{version}.tar.gz
-# Source0-md5:	bd17a9d15e755375f48a62c13b25b801
-URL:		https://pypi.python.org/pypi/idna
+# Source0-md5:	f6473caa9c5e0cc1ad3fd5d04c3c114b
+URL:		https://github.com/kjd/idna
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
 %if %{with python2}
-BuildRequires:	python-modules
+BuildRequires:	python-modules >= 1:2.7
 BuildRequires:	python-setuptools
 %endif
 %if %{with python3}
-BuildRequires:	python3-modules
+BuildRequires:	python3-modules >= 1:3.3
 BuildRequires:	python3-setuptools
 %endif
-Requires:	python-modules
+Requires:	python-modules >= 1:2.7
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -55,7 +56,7 @@ obsługująca tylko starszą specyfikację z 2003.
 Summary:	Internationalized Domain Names in Applications (IDNA) for Python 3
 Summary(pl.UTF-8):	IDNA (Internationalized Domain Names in Applications) dla Pythona 3
 Group:		Libraries/Python
-Requires:	python3-modules
+Requires:	python3-modules >= 1:3.3
 
 %description -n python3-%{module}
 A library to support the Internationalised Domain Names in
@@ -111,9 +112,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc HISTORY.rst README.rst
 %{py_sitescriptdir}/%{module}
-%if "%{py_ver}" > "2.4"
 %{py_sitescriptdir}/%{module}-%{version}-py*.egg-info
-%endif
 %endif
 
 %if %{with python3}
