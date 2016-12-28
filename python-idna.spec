@@ -10,7 +10,7 @@ Summary:	Internationalized Domain Names in Applications (IDNA) for Python 2
 Summary(pl.UTF-8):	IDNA (Internationalized Domain Names in Applications) dla Pythona 2
 Name:		python-%{module}
 Version:	2.1
-Release:	1
+Release:	2
 License:	BSD
 Group:		Libraries/Python
 #Source0Download: https://pypi.python.org/simple/idna/
