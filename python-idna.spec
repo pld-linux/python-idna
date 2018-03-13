@@ -9,12 +9,12 @@
 Summary:	Internationalized Domain Names in Applications (IDNA) for Python 2
 Summary(pl.UTF-8):	IDNA (Internationalized Domain Names in Applications) dla Pythona 2
 Name:		python-%{module}
-Version:	2.5
+Version:	2.6
 Release:	1
 License:	BSD
 Group:		Libraries/Python
 Source0:	https://github.com/kjd/idna/archive/v%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	f31cd2faf6954e13978f1d802a9dc9b6
+# Source0-md5:	a835f2d123511e2a28c8ccda7a2da7fc
 URL:		https://github.com/kjd/idna
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
