@@ -1,7 +1,6 @@
 #
 # Conditional build:
-%bcond_without	doc	# don't build doc
-%bcond_without	tests	# do not perform "make test"
+%bcond_without	tests	# unit tests
 %bcond_without	python2 # CPython 2.x module
 %bcond_without	python3 # CPython 3.x module
 
@@ -9,12 +8,12 @@
 Summary:	Internationalized Domain Names in Applications (IDNA) for Python 2
 Summary(pl.UTF-8):	IDNA (Internationalized Domain Names in Applications) dla Pythona 2
 Name:		python-%{module}
-Version:	2.6
-Release:	2
+Version:	2.7
+Release:	1
 License:	BSD
 Group:		Libraries/Python
 Source0:	https://github.com/kjd/idna/archive/v%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	a835f2d123511e2a28c8ccda7a2da7fc
+# Source0-md5:	d7d71126d040d965726688885ec81532
 URL:		https://github.com/kjd/idna
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
@@ -109,7 +108,7 @@ rm -rf $RPM_BUILD_ROOT
 %if %{with python2}
 %files
 %defattr(644,root,root,755)
-%doc HISTORY.rst README.rst
+%doc HISTORY.rst LICENSE.rst README.rst
 %{py_sitescriptdir}/%{module}
 %{py_sitescriptdir}/%{module}-%{version}-py*.egg-info
 %endif
@@ -117,7 +116,7 @@ rm -rf $RPM_BUILD_ROOT
 %if %{with python3}
 %files -n python3-%{module}
 %defattr(644,root,root,755)
-%doc HISTORY.rst README.rst
+%doc HISTORY.rst LICENSE.rst README.rst
 %{py3_sitescriptdir}/%{module}
 %{py3_sitescriptdir}/%{module}-%{version}-py*.egg-info
 %endif
