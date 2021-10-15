@@ -2,14 +2,15 @@
 # Conditional build:
 %bcond_without	tests	# unit tests
 %bcond_without	python2 # CPython 2.x module
-%bcond_without	python3 # CPython 3.x module
+# see python3-idna.spec
+%bcond_with	python3 # CPython 3.x module
 
 %define 	module	idna
 Summary:	Internationalized Domain Names in Applications (IDNA) for Python 2
 Summary(pl.UTF-8):	IDNA (Internationalized Domain Names in Applications) dla Pythona 2
 Name:		python-%{module}
 Version:	2.9
-Release:	2
+Release:	3
 License:	BSD
 Group:		Libraries/Python
 #Source0Download: https://github.com/kjd/idna/releases
