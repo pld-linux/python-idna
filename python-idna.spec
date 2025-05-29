@@ -11,7 +11,7 @@ Summary(pl.UTF-8):	IDNA (Internationalized Domain Names in Applications) dla Pyt
 Name:		python-%{module}
 # keep 2.x here for python2 support
 Version:	2.10
-Release:	1
+Release:	2
 License:	BSD
 Group:		Libraries/Python
 #Source0Download: https://github.com/kjd/idna/releases
